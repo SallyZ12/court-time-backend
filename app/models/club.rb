@@ -6,6 +6,6 @@ class Club < ApplicationRecord
 
   validates :club_name, presence: true
   validates :location, presence: true
-  validates :nunmber_courts, presence: true
+  validates :number_courts, presence: true
 
 end
