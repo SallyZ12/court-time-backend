@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_21_161844) do
+ActiveRecord::Schema.define(version: 2019_07_21_180613) do
 
   create_table "clubs", force: :cascade do |t|
     t.string "club_name"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2019_07_21_161844) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.integer "player_id"
+    t.integer "user_id"
     t.integer "court_id"
     t.integer "rate_id"
     t.time "hour"
