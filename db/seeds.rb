@@ -17,4 +17,4 @@ Rate.create(id:1, club_id: 1, description: 'prime', rate: 60)
 Rate.create(id:2, club_id: 1, description: 'non-prime', rate: 50)
 
 
-Reservation.create(id: 1, user_id: 1, court_id: 1, rate_id: 1, hour: 8, day: 07/21/2019)
+Reservation.create(id: 1, user_id: 1, court_id: 1, rate_id: 1, hour: '14', day: '2019-07-21')
