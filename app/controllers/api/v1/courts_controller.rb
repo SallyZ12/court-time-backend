@@ -1,2 +1,2 @@
-class CourtsController < ApplicationController
+class Api::V1::CourtsController < ApplicationController
 end
