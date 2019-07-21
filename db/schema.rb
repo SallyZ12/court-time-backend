@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2019_07_21_161844) do
     t.integer "club_id"
     t.integer "court_number"
     t.string "surface"
-    t.string "string"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -4,8 +4,7 @@ class CreateCourts < ActiveRecord::Migration[5.2]
       t.integer :club_id
       t.integer :court_number
       t.string :surface
-      t.string :string
-
+    
       t.timestamps
     end
   end
