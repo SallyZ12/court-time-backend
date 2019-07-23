@@ -26,10 +26,3 @@ Reservation.create(id: 1, user_id: 1, court_id: 1, rate_id: 1, hour: '2:00 pm', 
 Reservation.create(id: 2, user_id: 2, court_id: 3, rate_id: 3, hour: '8:00 am', day: '2019-07-22')
 Reservation.create(id: 3, user_id: 1, court_id: 2, rate_id: 2, hour: '10:00 am', day: '2019-07-24')
 Reservation.create(id: 4, user_id: 1, court_id: 1, rate_id: 1, hour: '10:00 am', day: '2019-07-25')
-
-
-player = User.first
-club = Club.first
-court = Court.first
-rate = Rate.first
-reservation = Reservation.first
