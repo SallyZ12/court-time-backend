@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_25_211048) do
+ActiveRecord::Schema.define(version: 2019_07_25_220945) do
 
   create_table "clubs", force: :cascade do |t|
     t.string "club_name"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2019_07_25_211048) do
     t.string "surface"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "prime"
-    t.string "non_prime"
+    t.integer "prime"
+    t.integer "non_prime"
   end
 
   create_table "reservations", force: :cascade do |t|
