@@ -28,14 +28,6 @@ ActiveRecord::Schema.define(version: 2019_07_24_183217) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "rates", force: :cascade do |t|
-    t.integer "club_id"
-    t.string "description"
-    t.float "rate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "reservations", force: :cascade do |t|
     t.integer "user_id"
     t.integer "court_id"
