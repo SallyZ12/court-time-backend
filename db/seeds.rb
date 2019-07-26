@@ -18,7 +18,7 @@ Court.create(id: 3, club_id: 1, court_number: 3, surface: 'hard', prime: 55, non
 Court.create(id: 4, club_id: 2, court_number: 2, surface: 'har-tru', prime: 50, non_prime: 40)
 
 
-Reservation.create(id: 1, user_id: 1, court_id: 1, hour: '12:00 pm', day: '2019-07-21', confirmID: 123456, rate_type: 'prime' )
-Reservation.create(id: 2, user_id: 2, court_id: 3, hour: '8:00 am', day: '2019-07-22', confirmID: 234567, rate_type: 'prime')
-Reservation.create(id: 3, user_id: 1, court_id: 2, hour: '1:00 pm' , day: '2019-07-24', confirmID: 345678, rate_type: 'non-prime')
-Reservation.create(id: 4, user_id: 1, court_id: 4, hour: '4:00 pm', day: '2019-07-25', confirmID: 456789, rate_type: 'non-prime')
+Reservation.create(id: 1, user_id: 1, court_id: 1, hour: '12:00 pm', day: '2019-07-21', confirmID: 123456, rate_type: 'prime', rate:60 )
+Reservation.create(id: 2, user_id: 2, court_id: 3, hour: '8:00 am', day: '2019-07-22', confirmID: 234567, rate_type: 'prime', rate: 55)
+Reservation.create(id: 3, user_id: 1, court_id: 2, hour: '1:00 pm' , day: '2019-07-24', confirmID: 345678, rate_type: 'non-prime', rate: 50)
+Reservation.create(id: 4, user_id: 1, court_id: 4, hour: '4:00 pm', day: '2019-07-25', confirmID: 456789, rate_type: 'non-prime', rate: 40)
