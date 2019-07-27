@@ -17,7 +17,7 @@ class Api::V1::ClubsController < ApplicationController
 
     def show
       @club = Club.find(params[:id])
-      render json: @club 
+      render json: @club
     end
 
     def destroy
@@ -31,7 +31,7 @@ class Api::V1::ClubsController < ApplicationController
     end
 
     def club_params
-      params:require(:club).permit(:club_name, :location, :number_courts)
+      params.require(:club).permit(:club_name, :location, :number_courts)
     end
 
 
