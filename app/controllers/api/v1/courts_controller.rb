@@ -9,7 +9,7 @@ class Api::V1::CourtsController < ApplicationController
     end
 
     def show
-      @court = Court.find(params[:id])
+      @court = set_court
       render json: @court
     end
 
