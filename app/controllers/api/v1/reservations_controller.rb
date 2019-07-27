@@ -1,12 +1,12 @@
 class Api::V1::ReservationsController < ApplicationController
 
   before_action :set_user
-  before_action :set_court
+  # before_action :set_court
 
   def index
     @reservations = Reservation.all
     @reservations = @user.reservations
-    @reservations = @court.reservations
+    # @reservations = @court.reservations
     render json: @reservations
   end
 
@@ -17,7 +17,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.create(reservation_params)
-    
+
     render json: @reservation
   end
 
@@ -28,9 +28,9 @@ class Api::V1::ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
   end
 
-  def set_court
-    @court = Court.find(params[:court_id])
-  end
+  # def set_court
+  #   @court = Court.find(params[:court_id])
+  # end
 
   def set_user
     @user = User.find(params[:user_id])

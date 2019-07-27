@@ -7,6 +7,7 @@ class Api::V1::ClubsController < ApplicationController
 
     def show
       @club = Club.find(params[:id])
+
       render json: @club
     end
 

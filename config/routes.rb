@@ -4,6 +4,7 @@ Rails.application.routes.draw do
      namespace :v1 do
        resources :reservations
        resources :users
+       resources :clubs
 
             resources :users do
               resources :reservations
@@ -11,14 +12,8 @@ Rails.application.routes.draw do
             resources :courts do
               resources :reservations
 
-            resources :clubs do
-              resources :courts
-
           end
          end
         end
        end
-     end
-
-
 end
