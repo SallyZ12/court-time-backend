@@ -5,11 +5,16 @@ Rails.application.routes.draw do
        resources :reservations
        resources :users
 
+       resources :users do
+         resources :reservations
+
        resources :clubs do
          resources :courts
+
+         end
+        end
        end
      end
-  end
 
 
 end
