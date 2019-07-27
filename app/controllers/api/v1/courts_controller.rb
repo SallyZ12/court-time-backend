@@ -4,6 +4,7 @@ class Api::V1::CourtsController < ApplicationController
 
     def index
       @courts = Court.all
+      @courts = @club.courts
       render json: @courts
     end
 
