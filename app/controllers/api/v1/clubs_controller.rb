@@ -5,20 +5,21 @@ class Api::V1::ClubsController < ApplicationController
       render json: @clubs
     end
 
+    def show
+      @club = Club.find(params[:id])
+      render json: @club
+    end
+
 
     def create
-      @club = Club.account.new(club_params)
+      @club = Club.new(club_params)
         if @club.save
-          render json: @account
+          render json: @club
         else
           render json: {error: 'Error creating club'}
         end
     end
 
-    def show
-      @club = Club.find(params[:id])
-      render json: @club
-    end
 
     def destroy
     end
