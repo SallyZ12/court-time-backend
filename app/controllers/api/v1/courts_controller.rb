@@ -15,6 +15,7 @@ class Api::V1::CourtsController < ApplicationController
 
     def create
       @court = @club.courts.new(court_params)
+      @court = Court.new(court_params)
       @court.save
       render json: @court
     end
