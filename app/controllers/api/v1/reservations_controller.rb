@@ -5,8 +5,8 @@ class Api::V1::ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.all
-    @reservations = @user.reservations
-    # @reservations = @court.reservations
+     @reservations = @user.reservations
+     # @reservations = @court.reservations
     render json: @reservations
   end
 
