@@ -3,4 +3,5 @@ class CourtSerializer < ActiveModel::Serializer
 
   belongs_to :club
   has_many  :reservations
+  
 end
