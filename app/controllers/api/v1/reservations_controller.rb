@@ -1,11 +1,15 @@
 class Api::V1::ReservationsController < ApplicationController
 
-  before_action :set_user
+  # before_action :set_user
   # before_action :set_court
 
   def index
-    @reservations = Reservation.all
-     @reservations = @user.reservations
+    if params[:user_id]
+        @user = set_user
+        @reservations = @user.reservations
+      else
+     @reservations = Reservation.all
+   end
      # @reservations = @court.reservations
     render json: @reservations
   end
