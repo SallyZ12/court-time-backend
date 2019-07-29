@@ -2,8 +2,10 @@ class Api::V1::ClubsController < ApplicationController
 
 # before_action :set_user
 
+
     def index
       @clubs = Club.all
+
       render json: @clubs
     end
 
@@ -32,6 +34,10 @@ class Api::V1::ClubsController < ApplicationController
 
     def set_club
       @club = Club.find(params[:id])
+    end
+
+    def set_court
+      @court = Court.find(params[:court_id])
     end
 
     def set_reservation

@@ -1,10 +1,12 @@
 class Api::V1::CourtsController < ApplicationController
 
     before_action :set_club
+  
 
     def index
       @courts = Court.all
       @courts = @club.courts
+
       render json: @courts
     end
 
@@ -15,7 +17,7 @@ class Api::V1::CourtsController < ApplicationController
 
     def create
       @court = @club.courts.new(court_params)
-    
+
       @court.save
       render json: @court
     end
@@ -32,6 +34,7 @@ class Api::V1::CourtsController < ApplicationController
     def set_court
       @court = Court.find(params[:id])
     end
+
 
     def court_params
       params.require(:court).permit(:club_id, :court_number, :surface, :prime, :non_prime)
