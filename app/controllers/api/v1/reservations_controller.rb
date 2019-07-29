@@ -1,7 +1,5 @@
 class Api::V1::ReservationsController < ApplicationController
 
-  # before_action :set_user
-  # before_action :set_court
 
   def index
     if params[:user_id]
@@ -10,7 +8,14 @@ class Api::V1::ReservationsController < ApplicationController
       else
      @reservations = Reservation.all
    end
-     # @reservations = @court.reservations
+
+   if params[:court_id]
+     @court = set_court
+     @reservations = @court.reservations
+   else
+     @reservations = Reservation.all
+   end
+
     render json: @reservations
   end
 
@@ -32,14 +37,13 @@ class Api::V1::ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
   end
 
-  # def set_court
-  #   @court = Court.find(params[:court_id])
-  # end
+  def set_court
+    @court = Court.find(params[:court_id])
+  end
 
   def set_user
     @user = User.find(params[:user_id])
   end
-
 
 
   def reservation_params
