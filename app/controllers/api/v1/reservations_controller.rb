@@ -4,32 +4,32 @@ class Api::V1::ReservationsController < ApplicationController
   def index
 
     if params[:user_id]
-        @user = set_user
-        @reservations = @user.reservations
-    else
-       @reservations = Reservation.all
-    end
+      @user = set_user
+      @reservations = @user.reservations
+      else
+        @reservations = Reservation.all
 
     if params[:court_id]
       @court = set_court
       @reservations = @court.reservations
-      else
-        @reservations = Reservation.all
-    end
+    else
+      @reservations = Reservation.all
 
     if params[:club_id]
       @club = set_club
       @reservations = @club.reservations
-    else
-      @reservations = Reservation.all
+      else
+        @reservations = Reservation.all
+        end
+      end
     end
-
-    render json: @reservations
+      render json: @reservations
   end
 
 
-  def show
-    @reservation = set_reservation
+   def show
+        @reservation = set_reservation
+        render json: @reservations
   end
 
   def create
