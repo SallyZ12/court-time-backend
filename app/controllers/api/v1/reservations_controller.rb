@@ -29,7 +29,7 @@ class Api::V1::ReservationsController < ApplicationController
 
    def show
         @reservation = set_reservation
-        render json: @reservations
+        render json: @reservation
   end
 
   def create
