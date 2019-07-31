@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :courts, through: :reservations
 
 
-  validates :username, :email, presence: true
+  validates :first_name, :last_name, :username, :email, presence: true
   validates :username, :email, uniqueness: true
 
   validates :password, presence: true, length: {minimum: 8}
