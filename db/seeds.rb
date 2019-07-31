@@ -22,3 +22,4 @@ reservation1 = Reservation.create(user_id: 1, court_id: 1, hour: '12:00 pm', day
 reservation2 = Reservation.create(user_id: 2, court_id: 3, hour: '8:00 am', day: '2019-07-22', confirmID: 234567, rate_type: 'prime', rate: 55)
 reservation3 = Reservation.create(user_id: 1, court_id: 2, hour: '1:00 pm' , day: '2019-07-24', confirmID: 345678, rate_type: 'non-prime', rate: 50)
 reservation4 = Reservation.create(user_id: 1, court_id: 4, hour: '4:00 pm', day: '2019-07-25', confirmID: 456789, rate_type: 'non-prime', rate: 40)
+reservation5 = Reservation.create(user_id: 2, court_id: 4, hour: '6:00 pm', day: '2019-08-01', confirmID: 000000, rate_type: 'non-prime', rate: 40)
