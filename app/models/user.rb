@@ -12,6 +12,5 @@ class User < ApplicationRecord
 
   validates :password, presence: true, length: {minimum: 8}
 
-  validates_inclusion_of :admin, :in => ["Yes", "No"]
 
 end
