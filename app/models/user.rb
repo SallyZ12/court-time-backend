@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-   # include ActiveModel::Validations
-   # validates_with AdminValidator
 
   has_secure_password
 
@@ -15,13 +13,13 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: 8}
 
 
-  validates :admin, presence: true, if: :admin_limit
-
-  # validates :admin, if: Proc.new {|users| user.admin === "Yes"}
-
-  # validates_uniqueness_of :admin, conditions: -> { where(admin:'Yes') }
-
-      def admin_limit
-        admin === "Yes"
+      def is_admin
+        # flag = true
+        User.all.each do |user|
+          if user.admin === "Yes"
+            # flag = false
+          end
+        end
       end
+
 end
