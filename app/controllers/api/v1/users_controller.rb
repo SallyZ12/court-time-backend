@@ -16,7 +16,7 @@ class Api::V1::UsersController < ApplicationController
 
     @user = User.new(user_params)
       if params[:user][:admin] === 'No' || is_admin === true
-        
+
             if @user.save
               session[:user_id] = @user.id
               render json: @user, status: :created
@@ -28,7 +28,7 @@ class Api::V1::UsersController < ApplicationController
             end
       else
         render json: {
-        error: " Only one Admin "
+        error: "Admin exists -- only one permitted"
         }
     end
 end
