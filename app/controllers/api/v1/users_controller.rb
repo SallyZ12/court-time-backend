@@ -14,10 +14,11 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
+    # binding.pry
     @user = User.new(user_params)
-     @user.is_admin
+      if params[:user][:admin] === 'No' || is_admin === true
       if @user.save
-      # if @user.can_be_admin && @user.save
+      
           session[:user_id] = @user.id
         render json: @user, status: :created
       else
@@ -27,6 +28,7 @@ class Api::V1::UsersController < ApplicationController
       render json: resp, status: :unprocessable_entity
       end
   end
+end
 
   def destroy
   end
@@ -43,14 +45,16 @@ class Api::V1::UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :admin)
   end
 
-  # def is_admin
-  #   flag = true
-  #   User.all.each do |user|
-  #     if user.admin === "Yes"
-  #       flag = false
-  #     end
-  #   end
-  # end
+
+
+  def is_admin
+    User.all.each do |user|
+      if user.admin === "Yes"
+        return false
+      end
+    end
+    return true
+  end
 
 
 

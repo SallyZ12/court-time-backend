@@ -13,13 +13,5 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: 8}
 
 
-      def is_admin
-        # flag = true
-        User.all.each do |user|
-          if user.admin === "Yes"
-            # flag = false
-          end
-        end
-      end
 
 end
