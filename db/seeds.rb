@@ -18,8 +18,8 @@ court3 = Court.create(club_id: 1, court_number: 3, surface: 'hard', prime: 55, n
 court4 = Court.create(club_id: 2, court_number: 2, surface: 'har-tru', prime: 50, non_prime: 40)
 
 
-reservation1 = Reservation.create(user_id: 1, court_id: 1, hour: '12:00 pm', day: '7/21/2019', confirmID: 123456, rate_type: 'prime', rate:60 )
-reservation2 = Reservation.create(user_id: 2, court_id: 3, hour: '8:00 am', day: '7/22/2019', confirmID: 234567, rate_type: 'prime', rate: 55)
-reservation3 = Reservation.create(user_id: 1, court_id: 2, hour: '1:00 pm' , day: '9/10/2019', confirmID: 345678, rate_type: 'non-prime', rate: 50)
-reservation4 = Reservation.create(user_id: 1, court_id: 4, hour: '4:00 pm', day: '8/15/2019', confirmID: 456789, rate_type: 'non-prime', rate: 40)
-reservation5 = Reservation.create(user_id: 2, court_id: 4, hour: '6:00 pm', day: '8/16/2019', confirmID: 000000, rate_type: 'non-prime', rate: 40)
+reservation1 = Reservation.create(user_id: 1, court_id: 1, hour: '12:00 pm', day: '2019-7-21', confirmID: 123456, rate_type: 'prime', rate:60 )
+reservation2 = Reservation.create(user_id: 2, court_id: 3, hour: '8:00 am', day: '2019-7-22', confirmID: 234567, rate_type: 'prime', rate: 55)
+reservation3 = Reservation.create(user_id: 1, court_id: 2, hour: '1:00 pm', day: '2019-9-10', confirmID: 345678, rate_type: 'non-prime', rate: 50)
+reservation4 = Reservation.create(user_id: 1, court_id: 4, hour: '4:00 pm', day: '2019-8-15', confirmID: 456789, rate_type: 'non-prime', rate: 40)
+reservation5 = Reservation.create(user_id: 2, court_id: 4, hour: '6:00 pm', day: '2019-8-16', confirmID: 999999, rate_type: 'non-prime', rate: 40)
