@@ -1,5 +1,5 @@
 class ClubSerializer < ActiveModel::Serializer
-  attributes :id, :club_name, :location, :number_courts
+  attributes :id, :club_name, :location
 
   has_many :courts
 end

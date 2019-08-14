@@ -49,7 +49,7 @@ class Api::V1::ClubsController < ApplicationController
     end
 
     def club_params
-      params.require(:club).permit(:club_name, :location, :number_courts)
+      params.require(:club).permit(:club_name, :location)
     end
 
 
