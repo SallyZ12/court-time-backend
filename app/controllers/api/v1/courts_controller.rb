@@ -1,7 +1,7 @@
 class Api::V1::CourtsController < ApplicationController
 
     before_action :set_club
-  
+
 
     def index
       @courts = Court.all
@@ -19,7 +19,7 @@ class Api::V1::CourtsController < ApplicationController
       @court = @club.courts.new(court_params)
 
       @court.save
-      render json: @court
+      render json: @club
     end
 
     def destroy
