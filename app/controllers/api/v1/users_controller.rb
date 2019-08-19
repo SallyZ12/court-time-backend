@@ -6,11 +6,15 @@ class Api::V1::UsersController < ApplicationController
     render json: @users
   end
 
+  def new
+    @user = User.new
+  end
+
 
   def show
     # if logged_in?
       @user = set_user
-  
+
     render json: @user
   end
 
@@ -35,7 +39,19 @@ class Api::V1::UsersController < ApplicationController
     end
 end
 
+# when update method was added signup did not work- create method failed
+# above received unprocessable_entity error
+  # def update
+  #   if @user.update(user_params)
+  #     render: json: @user
+  #   else
+  #     render json: @user.errors, status: :unprocessable_entity
+  #   end
+  # end
+
+
   def destroy
+    @user.destroy
   end
 
 
