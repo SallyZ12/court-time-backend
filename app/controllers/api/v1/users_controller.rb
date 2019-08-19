@@ -8,7 +8,9 @@ class Api::V1::UsersController < ApplicationController
 
 
   def show
-    @user = User.find(params[:id])
+    # if logged_in?
+      @user = set_user
+  
     render json: @user
   end
 
@@ -56,4 +58,4 @@ end
     return true
   end
 
-end 
+end
