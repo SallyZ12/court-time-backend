@@ -17,15 +17,14 @@ class Api::V1::CourtsController < ApplicationController
 
     def create
       @court = @club.courts.new(court_params)
-        if @court.save
-      render json: @club
-    else
-      resp = {
-      error: @court.errors.full_messages.to_sentence
-    }
-    render json: resp, status: :unprocessable_entity
+        if  @court.save
+          render json: @club
+        else
+          render json: {
+          error: "Missing Court Data - Please Try Again"
+        }
+      end
     end
-  end
 
     def destroy
     end
