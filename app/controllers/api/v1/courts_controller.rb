@@ -17,10 +17,15 @@ class Api::V1::CourtsController < ApplicationController
 
     def create
       @court = @club.courts.new(court_params)
-    
-      @court.save
+        if @court.save
       render json: @club
+    else
+      resp = {
+      error: @court.errors.full_messages.to_sentence
+    }
+    render json: resp, status: :unprocessable_entity
     end
+  end
 
     def destroy
     end
