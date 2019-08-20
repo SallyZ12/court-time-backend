@@ -4,8 +4,7 @@ class Court < ApplicationRecord
   has_many :reservations
   has_many :users, through: :reservations
 
-  validates :surface, presence: true
-  validates :court_number, presence: true
+  validates :court_number, :surface, :prime, :non_prime, presence: true
 
 
   def prime_time
