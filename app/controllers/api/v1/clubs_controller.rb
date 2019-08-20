@@ -18,7 +18,10 @@ class Api::V1::ClubsController < ApplicationController
          if @club.save
            render json: @club
          else
-           render json: {error: 'Error creating club'}
+           resp = {
+           error: @club.errors.full_messages.to_sentence
+         }
+         render json: resp, status: :unprocessable_entity
          end
      end
 
