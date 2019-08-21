@@ -30,7 +30,7 @@ class Api::V1::UsersController < ApplicationController
               resp = {
               error: @user.errors.full_messages.to_sentence
             }
-            render json: resp, status: :unprocessable_entity
+            render json: resp
             end
       else
         render json: {
