@@ -15,13 +15,13 @@ class Api::V1::ClubsController < ApplicationController
 
      def create
        @club = Club.new(club_params)
-         if @club.save
-           render json: @club
-         else
-           resp = {
-           error: @club.errors.full_messages.to_sentence
-         }
-         render json: resp
+            if @club.save
+            render json: @club
+            else
+            resp = {
+              error: @club.errors.full_messages.to_sentence
+            }
+        render json: resp
          end
      end
 
