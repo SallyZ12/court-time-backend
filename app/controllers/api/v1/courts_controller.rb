@@ -28,6 +28,10 @@ class Api::V1::CourtsController < ApplicationController
     end
 
     def destroy
+      @court = set_court
+      @club = Club.find(@court.club_id)
+       @court.destroy
+       render json: @club
     end
 
     private
