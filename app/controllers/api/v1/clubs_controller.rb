@@ -25,7 +25,6 @@ class Api::V1::ClubsController < ApplicationController
          end
      end
 
-
      def destroy
      end
 

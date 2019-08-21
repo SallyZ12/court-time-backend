@@ -20,9 +20,10 @@ class Api::V1::CourtsController < ApplicationController
         if  @court.save
           render json: @club
         else
-          render json: {
-          error: "Missing Court Data - Please Try Again"
+          resp = {
+          error: @court.errors.full_messages.to_sentence
         }
+        render json: resp, status: :unprocessable_entity
       end
     end
 
