@@ -7,6 +7,7 @@ class Court < ApplicationRecord
   validates :court_number, :surface, :prime, :non_prime, presence: true
 
 
+
   def prime_time
     return ['9:00 am', '10:00 am', '11:00 am', '6:00 pm', '7:00 pm', '8:00 pm', '9:00 pm', '10:00 pm']
   end
