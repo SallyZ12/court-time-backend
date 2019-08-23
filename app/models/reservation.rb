@@ -5,6 +5,6 @@ class Reservation < ApplicationRecord
 
   has_one :club, through: :court
 
-  validates :hour, :day, presence: true
+  # validates :hour, :day, presence: true
 
 end
