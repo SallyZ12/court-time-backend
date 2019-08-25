@@ -17,6 +17,7 @@ class Api::V1::CourtsController < ApplicationController
 
     def create
       @court = @club.courts.new(court_params)
+      @user = current_user
         if  @court.save
           render json: @club
         else
@@ -30,14 +31,15 @@ class Api::V1::CourtsController < ApplicationController
     def destroy
       @court = set_court
       @club = Club.find(@court.club_id)
-        if @court.reservations.present?
-          render json: {
-            error: "Can not delete a court with reservations"
+
+          if @court.reservations.present?
+              render json: {
+                error: "Can not delete a court with reservations"
           }
-        else
-       @court.destroy
-       render json: @club
-     end
+          else
+            @court.destroy
+            render json: @club
+            end    
     end
 
     private
