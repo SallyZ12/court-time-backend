@@ -18,4 +18,17 @@ class ApplicationController < ActionController::API
     end
 
 
+    def is_admin
+      User.all.each do |user|
+        if user.admin === "Yes"
+          return false
+        end
+      end
+      return true
+    end
+
+
+
+
+
 end
