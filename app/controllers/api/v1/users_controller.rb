@@ -65,13 +65,13 @@ end
     params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :admin)
   end
 
-  def is_admin
-    User.all.each do |user|
-      if user.admin === "Yes"
-        return false
-      end
-    end
-    return true
-  end
+  # def is_admin
+  #   User.all.each do |user|
+  #     if user.admin === "Yes"
+  #       return false
+  #     end
+  #   end
+  #   return true
+  # end
 
 end
