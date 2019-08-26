@@ -59,7 +59,7 @@ class Api::V1::ReservationsController < ApplicationController
 
 
   def reservation_params
-    params.require(:reservation).permit(:rate_type, :rate, :hour, :day, :confirmID)
+    params.require(:reservation).permit(:court_id, :rate_type, :rate, :hour, :day, :confirmID)
   end
 
 
