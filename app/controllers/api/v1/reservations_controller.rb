@@ -35,17 +35,16 @@ class Api::V1::ReservationsController < ApplicationController
   def create
 
     @reservation = Reservation.new(reservation_params)
-    @user = current_user
-
-        @reservation.save
+      @user = current_user
+      if @reservation.save
         render json: @reservation
-
-      # else
-      #   render json: {
-      #     error: "You must be logged in to Reserve a Court"
-      #   }
-      # end
-end
+      else
+        resp = {
+          error: @reservation.errors.full_messages.to_sentence
+        }
+        render json: resp
+      end
+    end
 
 
   private
