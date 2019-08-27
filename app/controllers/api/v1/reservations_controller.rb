@@ -33,14 +33,18 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def create
-    if logged_in?
-    @reservation = Reservation.create(reservation_params)
-    render json: @reservation
-  else
-    render json: {
-      error: "You must be logged in to Reserve a Court"
-    }
-  end
+
+    @reservation = Reservation.new(reservation_params)
+    @user = current_user
+
+        @reservation.save
+        render json: @reservation
+
+      # else
+      #   render json: {
+      #     error: "You must be logged in to Reserve a Court"
+      #   }
+      # end
 end
 
 
