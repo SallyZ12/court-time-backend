@@ -39,7 +39,7 @@ class Api::V1::CourtsController < ApplicationController
           else
             @court.destroy
             render json: @club
-            end    
+            end
     end
 
     private
