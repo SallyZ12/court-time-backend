@@ -33,10 +33,15 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def create
+    if logged_in?
     @reservation = Reservation.create(reservation_params)
-
     render json: @reservation
+  else
+    render json: {
+      error: "You must be logged in to Reserve a Court"
+    }
   end
+end
 
 
   private
@@ -59,7 +64,7 @@ class Api::V1::ReservationsController < ApplicationController
 
 
   def reservation_params
-    params.require(:reservation).permit(:court_id, :rate_type, :rate, :hour, :day, :confirmID)
+    params.require(:reservation).permit(:user_id,:court_id, :rate_type, :rate, :hour, :day, :confirmID)
   end
 
 
