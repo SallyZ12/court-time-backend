@@ -36,9 +36,9 @@ class Api::V1::ReservationsController < ApplicationController
   def create
 
     @reservation = Reservation.new(reservation_params)
-      @user = User.find(params[:reservation][:user_id])
-      # @user = current_user
-    
+      # @user = User.find(params[:reservation][:user_id])
+      @user = current_user
+
       if @reservation.save
 
         render json: @user
