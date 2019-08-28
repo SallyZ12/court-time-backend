@@ -5,6 +5,7 @@ class Api::V1::ReservationsController < ApplicationController
 
     if params[:user_id]
       @user = current_user
+
       @reservations = @user.reservations
       else
         @reservations = Reservation.all
@@ -35,12 +36,15 @@ class Api::V1::ReservationsController < ApplicationController
   def create
 
     @reservation = Reservation.new(reservation_params)
-      @user = current_user
+      @user = User.find(params[:reservation][:user_id])
+      # @user = current_user
+    
       if @reservation.save
-        render json: @reservation
+
+        render json: @user
       else
         resp = {
-          error: @reservation.errors.full_messages.to_sentence
+          error: @user.errors.full_messages.to_sentence
         }
         render json: resp
       end
