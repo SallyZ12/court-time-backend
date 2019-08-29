@@ -17,7 +17,7 @@ class Api::V1::CourtsController < ApplicationController
 
     def create
       @court = @club.courts.new(court_params)
-      @user = current_user
+      @user = current_player
         if  @court.save
           render json: @club
         else

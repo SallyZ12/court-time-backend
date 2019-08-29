@@ -1,10 +1,11 @@
 class Api::V1::ReservationsController < ApplicationController
 
+# before_action :set_reservation, :set_user, only: [:show, :update, :destroy]
 
   def index
 
     if params[:user_id]
-      @user = current_user
+      @user = current_player
 
       @reservations = @user.reservations
       else
@@ -36,9 +37,9 @@ class Api::V1::ReservationsController < ApplicationController
   def create
 
     @reservation = Reservation.new(reservation_params)
+      @user = current_player
       # @user = User.find(params[:reservation][:user_id])
-      @user = current_user
-
+      # binding.pry
       if @reservation.save
 
         render json: @user
