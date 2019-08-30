@@ -26,11 +26,16 @@ class Api::V1::ClubsController < ApplicationController
      end
 
      def destroy
-       @club = set_club
+           @club = set_club
 
-        @club.destroy
-          render json: @club
+           @club.destroy
+           render json: @club
 
+      # else
+      #   render json: {
+      #     error: "You must be an admin to delete a club"
+      #   }
+      #   end
      end
 
 
