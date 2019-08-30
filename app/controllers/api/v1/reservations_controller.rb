@@ -38,16 +38,17 @@ class Api::V1::ReservationsController < ApplicationController
 
     @reservation = Reservation.new(reservation_params)
       @user = current_player
-      # @user = User.find(params[:reservation][:user_id])
-      # binding.pry
       if @reservation.save
 
         render json: @user
       else
-        resp = {
-          error: @user.errors.full_messages.to_sentence
+        render json: {
+          error: "Court Previously Booked - Select Another Court or Time"
         }
-        render json: resp
+        # resp = {
+        #   error: @user.errors.full_messages.to_sentence
+        # }
+        # render json: resp
       end
     end
 
