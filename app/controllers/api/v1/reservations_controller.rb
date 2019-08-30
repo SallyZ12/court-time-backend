@@ -43,7 +43,7 @@ class Api::V1::ReservationsController < ApplicationController
         render json: @user
       else
         render json: {
-          error: "Court Previously Booked - Select Another Court or Time"
+          error: "You must be Logged-In.....Or Court Previously Booked"
         }
       end
     end
