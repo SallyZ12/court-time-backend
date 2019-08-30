@@ -18,13 +18,22 @@ class Api::V1::CourtsController < ApplicationController
     def create
       @court = @club.courts.new(court_params)
       @user = current_player
-        if  @court.save
-          render json: @club
-        else
-          resp = {
-          error: @court.errors.full_messages.to_sentence
+
+      if @user.admin === 'Yes' || is_admin === true
+
+            if  @court.save
+                render json: @club
+            else
+              resp = {
+                error: @court.errors.full_messages.to_sentence
+              }
+              render json: resp
+            end
+
+      else
+        render json: {
+          error: "Only an Admin can create a court"
         }
-        render json: resp
       end
     end
 
