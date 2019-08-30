@@ -45,10 +45,6 @@ class Api::V1::ReservationsController < ApplicationController
         render json: {
           error: "Court Previously Booked - Select Another Court or Time"
         }
-        # resp = {
-        #   error: @user.errors.full_messages.to_sentence
-        # }
-        # render json: resp
       end
     end
 
