@@ -26,6 +26,11 @@ class Api::V1::ClubsController < ApplicationController
      end
 
      def destroy
+       @club = set_club
+
+        @club.destroy
+          render json: @club
+
      end
 
 
