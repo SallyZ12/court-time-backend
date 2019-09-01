@@ -66,7 +66,7 @@ end
     params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :admin)
   end
 
-  # def is_admin
+  # def is_admin -- moved to application_controller
   #   User.all.each do |user|
   #     if user.admin === "Yes"
   #       return false
