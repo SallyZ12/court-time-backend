@@ -9,6 +9,6 @@ class Reservation < ApplicationRecord
   validates :court_id, uniqueness: {scope: [:day, :hour]}
 
 
-  # validates :hour, :day, presence: true
+  validates :hour, :day, presence: true
 
 end
