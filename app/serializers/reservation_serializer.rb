@@ -6,9 +6,11 @@ class ReservationSerializer < ActiveModel::Serializer
   belongs_to :user
 
   def reservation_club
-    Reservation.all.select do |reservation|
 
-      return reservation.club.club_name
+    Reservation.all.each do |reservation|
+      
+     return reservation.club.club_name
+
     end
   end
 
