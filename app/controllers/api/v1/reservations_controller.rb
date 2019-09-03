@@ -49,8 +49,10 @@ class Api::V1::ReservationsController < ApplicationController
 
   def destroy
     @reservation = set_reservation
-    @reservation.destroy
-    render json: @reservation
+      @user = User.find(@reservation.user_id)
+
+      @reservation.destroy
+        render json: @user
  end
 
 
