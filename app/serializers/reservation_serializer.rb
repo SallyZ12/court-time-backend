@@ -5,20 +5,23 @@ class ReservationSerializer < ActiveModel::Serializer
   belongs_to :court
   belongs_to :user
 
+  # def self.reservation_club
+  #     @club.club_name
+  # end
+
   def reservation_club
 
     Reservation.all.each do |reservation|
       # binding.pry
-      Club.all.each do |club|
-        club.courts.each do |court|
+      # Club.all.each do |club|
+      #   club.courts.each do |court|
       #    if reservation.court_id === court.id
            # binding.pry
         # can also use:  reservation.club.club_name provides club_name
-          court.club.club_name
-          end
-        end
+          return reservation.club.club_name
       end
     end
+
 
 
 end
