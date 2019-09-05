@@ -8,10 +8,18 @@ class ReservationSerializer < ActiveModel::Serializer
   def reservation_club
 
     Reservation.all.each do |reservation|
-      
-     return reservation.club.club_name
+      # binding.pry
+      # Club.all.each do |club|
+      #   club.courts.each do |court|
+      #    if reservation.court_id === court.id
+           # binding.pry
+        # can also use:  reservation.club.club_name provides club_name
+          reservation.court.club.club_name
+        end
 
-    end
-  end
+      end
+
+
+
 
 end
