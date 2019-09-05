@@ -14,7 +14,7 @@ class ReservationSerializer < ActiveModel::Serializer
       #    if reservation.court_id === court.id
            # binding.pry
         # can also use:  reservation.club.club_name provides club_name
-          return court.club.club_name
+          court.club.club_name
           end
         end
       end
