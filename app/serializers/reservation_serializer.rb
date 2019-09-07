@@ -1,5 +1,5 @@
 class ReservationSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :court_id, :rate_type, :rate, :hour, :day, :confirmID, :reservation_club
+  attributes :id, :user_id, :court_id, :rate_type, :rate, :hour, :day, :confirmID, :reservation_club, :res_court_surface
 
 
   belongs_to :court
@@ -8,6 +8,10 @@ class ReservationSerializer < ActiveModel::Serializer
 
   def reservation_club
       self.object.club.club_name
+  end
+
+  def res_court_surface
+    self.object.court.surface
   end
 
 
