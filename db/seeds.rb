@@ -12,10 +12,10 @@ user2 = User.create(first_name: 'Venus', last_name: 'Williams', username: 'VW', 
 club1 = Club.create(club_name: "West Side", location: "NY")
 club2 = Club.create(club_name: "Delray Beach Tennis Center", location: "Delray Beach, Fl")
 
-court1 = Court.create(club_id: 1, court_number: 1, surface: 'grass', prime: 60, non_prime: 50)
-court2 = Court.create(club_id: 1, court_number: 2, surface: 'grass', prime: 60, non_prime: 50)
-court3 = Court.create(club_id: 1, court_number: 3, surface: 'hard', prime: 55, non_prime: 45)
-court4 = Court.create(club_id: 2, court_number: 2, surface: 'har-tru', prime: 50, non_prime: 40)
+court1 = Court.create(club_id: 1, court_number: 1, surface: 'Grass', prime: 60, non_prime: 50)
+court2 = Court.create(club_id: 1, court_number: 2, surface: 'Grass', prime: 60, non_prime: 50)
+court3 = Court.create(club_id: 1, court_number: 3, surface: 'Hard', prime: 55, non_prime: 45)
+court4 = Court.create(club_id: 2, court_number: 1, surface: 'Har-Tru', prime: 50, non_prime: 40)
 
 
 # reservation1 = Reservation.create(user_id: 1, court_id: 1, hour: '12:00 pm', day: '2019-7-21', confirmID: 123456, rate_type: 'prime', rate:60 )
