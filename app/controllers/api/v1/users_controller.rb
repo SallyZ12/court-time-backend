@@ -43,14 +43,23 @@ end
 
   def update
 
-    if @user.update(user_params)
-          render json: @user
-      resp = {
-      error: @user.errors.full_messages.to_sentence
-    }
-    render json: resp
+    @user =  set_user
+    @user.update(user_params)
+        if params[:user][:admin] === 'No' || is_admin === true
+
+              if@user.save
+                render json: @user
+                resp = {
+                  error: @user.errors.full_messages.to_sentence
+                }
+                  render json: resp
+              end
+        else
+          render json: {
+          error: "Admin exists -- only one permitted"
+          }
+        end
     end
-  end
 
 
   def destroy
