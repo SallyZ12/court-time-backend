@@ -40,15 +40,17 @@ before_action :set_user, only: [:show, :update, :destroy]
     end
 end
 
-# when update method was added signup did not work- create method failed
-# above received unprocessable_entity error
-  # def update
-  #   if @user.update(user_params)
-  #     render: json: @user
-  #   else
-  #     render json: @user.errors, status: :unprocessable_entity
-  #   end
-  # end
+
+  def update
+
+    if @user.update(user_params)
+          render json: @user
+      resp = {
+      error: @user.errors.full_messages.to_sentence
+    }
+    render json: resp
+    end
+  end
 
 
   def destroy
