@@ -45,7 +45,7 @@ end
 
     @user =  set_user
     @user.update(user_params)
-        if  params[:user][:admin] === 'No' || is_admin === true
+        # if  params[:user][:admin] === 'No' || is_admin === true
 
               if @user.save
                 render json: @user
@@ -55,11 +55,11 @@ end
                 }
                   render json: resp
               end
-        else
-          render json: {
-          error: "Admin exists -- only one permitted"
-          }
-      end 
+      #   else
+      #     render json: {
+      #     error: "Admin exists -- only one permitted"
+      #     }
+      # end 
 
     end
 
