@@ -37,9 +37,8 @@ class Api::V1::ReservationsController < ApplicationController
   def create
         @reservation = Reservation.new(reservation_params)
           @user = current_player
-
             if @reservation.save
-              render json: @user
+              render json: {user: @user, reservation: @reservation}
             else
               render json: {
                 error: "You must be Logged-In, Court Previously Booked, or Missing Day or Time"
