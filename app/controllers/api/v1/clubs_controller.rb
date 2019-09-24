@@ -28,14 +28,15 @@ class Api::V1::ClubsController < ApplicationController
      def destroy
            @club = set_club
 
+           if @club.reservations.present?
+             render json: {
+               error: "Can not delete a Club with reservations"
+          }
+
+          else
            @club.destroy
            render json: @club
-
-      # else
-      #   render json: {
-      #     error: "You must be an admin to delete a club"
-      #   }
-      #   end
+         end
      end
 
 
