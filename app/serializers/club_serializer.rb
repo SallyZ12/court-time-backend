@@ -4,10 +4,6 @@ class ClubSerializer < ActiveModel::Serializer
   has_many :courts
 
 
-  # def club_res
-  #   self.object.reservations
-  # end
-
   def club_res
     self.object.reservations.where('day >= ?', Date.today)
   end
