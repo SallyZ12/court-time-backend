@@ -75,7 +75,6 @@ def update
        error: "Admin exists -- only one permitted"
      }
 
-
    end
 end
 
