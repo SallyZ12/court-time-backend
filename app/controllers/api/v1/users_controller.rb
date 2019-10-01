@@ -41,27 +41,28 @@ before_action :set_user, only: [:show, :update, :destroy]
 end
 
 
-  def update
+def update
+  @user =  set_user
+  @user.update(user_params)
 
-    @user =  set_user
-    @user.update(user_params)
-        if  params[:user][:admin] === 'No' || is_admin === true
+    if @user.admin === "No" && params[:user][:admin] === "Yes"
 
-              if @user.save
-                render json: @user
-              else
-                resp = {
-                  error: @user.errors.full_messages.to_sentence
-                }
-                  render json: resp
-              end
-        else
-          render json: {
-          error: "Admin exists -- only one permitted"
-          }
-      end 
+        if @user.save
+            render json: @user
+            else
+           resp = {
+            error: @user.errors.full_messages.to_sentence
+            }
+            render json: resp
+       end
 
-    end
+     else render json: {
+       error: "Admin exists -- only one permitted"
+     }
+
+   end
+end
+
 
 
   def destroy
@@ -79,13 +80,34 @@ end
     params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :admin)
   end
 
-  # def is_admin -- moved to application_controller
-  #   User.all.each do |user|
-  #     if user.admin === "Yes"
-  #       return false
-  #     end
-  #   end
-  #   return true
-  # end
+  def is_admin
+    User.all.each do |user|
+      if user.admin === "Yes"
+        return false
+      end
+    end
+    return true
+  end
 
 end
+
+
+
+# def update
+#     @user =  set_user
+#     @user.update(user_params)
+#         if  params[:user][:admin] === 'No' || is_admin === true
+#               if @user.save
+#                 render json: @user
+#               else
+#                 resp = {
+#                   error: @user.errors.full_messages.to_sentence
+#                 }
+#                   render json: resp
+#               end
+#         else
+#           render json: {
+#           error: "Admin exists -- only one permitted"
+#           }
+#       end
+#     end
