@@ -43,22 +43,38 @@ end
 
 def update
   @user =  set_user
-  @user.update(user_params)
 
-    if @user.admin === "No" && params[:user][:admin] === "Yes"
+    if @user.admin === "Yes" && params[:user][:admin] === "Yes"
+       @user.update(user_params)
+          @user.save
+            render json: @user
 
-        if @user.save
+       elsif @user.admin === "No" && params[:user][:admin] === "No"
+         @user.update(user_params)
+            @user.save
+              render json: @user
+
+       elsif @user.admin === "Yes" && params[:user][:admin] === "No"
+            @user.update(user_params)
+              @user.save
+                render json: @user
+
+       elsif @user.admin === "No" && params[:user][:admin] === "Yes" && is_admin === true
+          @user.update(user_params)
+
+         if @user.save
             render json: @user
             else
            resp = {
             error: @user.errors.full_messages.to_sentence
             }
             render json: resp
-       end
+         end
 
      else render json: {
        error: "Admin exists -- only one permitted"
      }
+
 
    end
 end
