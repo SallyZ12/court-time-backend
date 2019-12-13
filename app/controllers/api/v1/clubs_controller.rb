@@ -25,6 +25,20 @@ class Api::V1::ClubsController < ApplicationController
          end
      end
 
+     def update
+       @club = set_club
+
+          @club.update(club_params)
+          if @club.save
+              render json: @club
+          else
+            resp = {
+              error: @user.errors.full_messages.to_sentence
+            }
+            render json: resp
+          end
+      end
+
      def destroy
            @club = set_club
 
