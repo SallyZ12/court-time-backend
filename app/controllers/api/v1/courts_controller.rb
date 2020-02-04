@@ -37,6 +37,24 @@ class Api::V1::CourtsController < ApplicationController
       end
     end
 
+
+    def update
+      @court = set_court
+
+         @court.update(court_params)
+        
+         if @court.save
+             render json: @club
+         else
+           resp = {
+             error: @user.errors.full_messages.to_sentence
+           }
+           render json: resp
+         end
+     end
+
+
+
     def destroy
       @court = set_court
       @club = Club.find(@court.club_id)
